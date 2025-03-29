@@ -1,0 +1,66 @@
+6.55 kops
+
+
+
+
+155kops
+"poll.interval.ms": "200",
+"batch.max.rows": 1000,
+"producer.override.linger.ms": 0,
+"producer.override.batch.size": 530000,
+"producer.override.buffer.memory": 33554432,
+"producer.override.compression.type": "snappy",
+
+
+
+
+165kops
+"poll.interval.ms": "200",
+"batch.max.rows": 2000,
+"producer.override.linger.ms": 0,
+"producer.override.batch.size": 1060000,
+"producer.override.buffer.memory": 33554432,
+"producer.override.compression.type": "snappy",
+
+
+
+
+162kops
+"poll.interval.ms": "100",
+"batch.max.rows": 2000,
+"producer.override.linger.ms": 0,
+"producer.override.batch.size": 1060000,
+"producer.override.buffer.memory": 33554432,
+"producer.override.compression.type": "snappy",
+
+
+
+
+158kops
+"poll.interval.ms": "100",
+"batch.max.rows": 2000,
+"producer.override.linger.ms": 200,
+"producer.override.batch.size": 1060000,
+"producer.override.buffer.memory": 33554432,
+"producer.override.compression.type": "snappy",
+
+
+
+
+165kops
+"poll.interval.ms": "100",
+"batch.max.rows": 2000,
+"producer.override.linger.ms": 500,
+"producer.override.batch.size": 1060000,
+"producer.override.buffer.memory": 33554432,
+"producer.override.compression.type": "snappy",
+
+
+
+
+165kops
+"batch.max.rows": 3000,
+"producer.override.linger.ms": 500,
+"producer.override.batch.size": 1280000,
+"producer.override.buffer.memory": 33554432,
+"producer.override.compression.type": "snappy",
