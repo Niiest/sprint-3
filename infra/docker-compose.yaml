@@ -27,6 +27,9 @@ services:
       POSTGRES_USER: postgres-user
       POSTGRES_PASSWORD: postgres-pw
       POSTGRES_DB: customers
+    volumes:
+      - ./postgres/custom-config.conf:/etc/postgresql/postgresql.conf
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
     networks:
       - proxynet
 
@@ -123,8 +126,8 @@ services:
       CONNECT_OFFSET_STORAGE_TOPIC: 'connect-offset-storage'
       CONNECT_STATUS_STORAGE_TOPIC: 'connect-status-storage'
 
-      CONNECT_KEY_CONVERTER: "io.confluent.connect.avro.AvroConverter"
-      CONNECT_VALUE_CONVERTER: "io.confluent.connect.avro.AvroConverter"
+      CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
 
@@ -143,6 +146,19 @@ services:
     networks:
       - proxynet
 
+  my-service:
+    image: go-app
+    ports:
+      - 8084:8084
+    environment:
+      KAFKA_URL: "kafka-0:9092"
+    depends_on:
+      - kafka-0
+      - kafka-1
+      - kafka-2
+    networks:
+      - proxynet
+
   prometheus:
     image: prom/prometheus:v2.30.3
     ports:
@@ -152,6 +168,7 @@ services:
     command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
     links:
       - kafka-connect
+      - my-service
     networks:
       - proxynet
 

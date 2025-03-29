@@ -30,3 +30,8 @@ scrape_configs:
   - job_name: 'kafka-connect-host'
     static_configs:
       - targets: ['kafka-connect:9876']
+
+    # Scrape Go service metrics 
+  - job_name: 'my-service'
+    static_configs:
+      - targets: ['my-service:8084']
