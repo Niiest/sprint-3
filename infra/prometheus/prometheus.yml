@@ -34,5 +34,5 @@ scrape_configs:
     # Scrape Go service metrics 
   - job_name: 'my_service'
     static_configs:
-      - targets: ['localhost:8080']
+      - targets: ['localhost:8084']
     metrics_path: '/metrics' 

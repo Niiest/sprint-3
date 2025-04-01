@@ -3,7 +3,7 @@
   "config": {
     "topics": "test-topic",
     "confluent.topic.bootstrap.servers": "localhost:9092",
-    "prometheus.listener.url": "http://localhost:8080/metrics",
+    "prometheus.listener.url": "http://localhost:8084/metrics",
     "reporter.result.topic.replication.factor": "1"
   }
  }
